@@ -7,13 +7,18 @@
 	table {border-collapse:collapse;}
 	td {padding: 5px; border : soild 3px gray; }
 </style>
-<title>Insert title here</title>
+
+<title>GUGUDAN</title>
 </head>
 <body>
-<table>
+<table border="1">
+	<tr>
+		<td colspan="9" align="center">GUGUDAN</td>
+	</tr>
 <%
 for(int i=2; i<10; i++){
-	out.println("	<tr>");
+	if(i%2==0)
+		out.println("	<tr  bgcolor='skybule'>");
 	for(int j=1; j<10; j++){
 		out.println("		<td>"+i+"*"+j+"="+i*j+"</td>");
 	}
