@@ -1,0 +1,66 @@
+﻿19.03.18
+
+// 수업 링크 : https://o365skhu-my.sharepoint.com/:w:/r/personal/lsj_office_skhu_ac_kr/_layouts/15/Doc.aspx?sourcedoc=%7BF3BFAF9F-B3B9-41A6-B735-1888D74F05B3%7D&file=03%20%EC%9E%85%EB%A0%A5%ED%8F%BC%20%231.docx&action=default&mobileredirect=true
+
+JSP 기초 #입력폼1
+절대 경로 URL vs 상대 경로 URL
+파일명만 적힌것 : 상대경로
+웹브라우저의 주소창에 표시된 현재 URL과 조합된 것
+방금 직전에 요청된 URL 을 어떻게 아는가?
+
+새로고침 : 방금 서버에 보냈던 URL을 다시 요청하는 것
+
+post vs get
+post 방식으로 새로고침을 요청하면 경고가 뜬다.
+주소를 직접 입력해서 URL에 서버를 요청할 때 get 방식
+입력폼에서 중요한 버튼을 눌렸을 때 post 방식
+입력폼에 입력된 데이터도 요청에 같이 담아서 웹서버에 보낸다
+이 데이터를 request parameter
+
+통신 데이터
+http requsest
+http respone 
+-> 이 친구들도 head와 body가 있음
+통신데이터를 열어보면 해더부분과 본문부분이 존재한다.
+URL은 본문부분 뒤에 존재?
+게시판에 글을 쓰고 저장 버튼을 눌렀을 때 post방식으로 저장되어 URL이 본문뒤에 존재
+get방식은 URL을 보여준다 해더부분에 존재해서
+
+URL의 ? 뒤는 다 쿼리스크이다.
+
+<html 에 대한 태그는 각자 공부하기>
+
+input 태그에서 중요한것
+name="param1" // 이것은 대소문자를 구분해 준다.
+입력된 데이터가 요청에 담겨져 웹서버에 전송될 때 이 이름이 request parameter의 이름이 된다.
+
+placeholder=" " // 안내문자를 은은하게 보여준다.
+
+value="아무 것이나 입력하시오1" //채워진 상태로 뜨는것
+ex) 게시판 수정할 때
+
+<input type="submit">
+<button type="submit">
+class="btn btn-primary"
+class의 의미 css 서식 클래스 style
+
+html 에 서식 라이브러리가 많은 것 bootstrap
+
+<input type="reset">
+웹 서버에 무엇이 요청되지 않고, 웹 브라우저에서만 초기화 된다
+
+request.getMethod()
+requset 메소드에는 get, post가 있음
+
+hrrps://www.google.com/search?학생
+q=student >>> URL (16진수로)인코딩한다 <-> 디코딩한다
+q=%ED%95%99%EC%%83%95
+
+웹 브라우저가 웹 서버에 URL을 요청하여 JSP를 실행될 때, 그 요청과 관련된 모든 것이
+requset 객체에 담겨져 전달된다. request parameter를 꺼내야 한다.
+
+request.setCharacterEncoding("utf-8")
+request parameter에 한글 데이터가 포함되어 있다면, 먼저 문자 인코딩부터 맞춰야 한다. 
+
+request.getParameter("데이터_이름") 
+요청에 담긴 request parameter를 꺼내는 메소드 호출이다. 
