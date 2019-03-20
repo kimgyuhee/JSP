@@ -1,0 +1,74 @@
+﻿19.03.20
+
+참고 문서 : https://o365skhu-my.sharepoint.com/:w:/r/personal/lsj_office_skhu_ac_kr/_layouts/15/Doc.aspx?sourcedoc=%7BF3BFAF9F-B3B9-41A6-B735-1888D74F05B3%7D&file=03%20%EC%9E%85%EB%A0%A5%ED%8F%BC%20%231.docx&action=default&mobileredirect=true
+
+JSP기초 #입력폼
+
+학습목표
+입력 양식을 웹브라우저에 표시하기 위한 HTML 태그를 JSP에서 출력한다.
+입력 양식에 값을 입력하고 웹 서버에 전송한다.
+전송된 값을 웹 서버의 JSP에서 받아서 처리한다.
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+......
+<body>
+	<div class="container">
+		<form action="text1action.jsp" method="post">
+// action="text1action.jsp" 입력폼에 입력된 데이터를 전송할 목적지 URL을 지정한다.
+   위 입력폼에서 '확인' 버튼을 클릭하면, 웹 브라우저는 즉시 text1action.jsp URL의 실행을 웹서버에
+   요청한다. 입력폼에 입력된 데이터도 이 요청(requset)에 같이 담아서 웹서버에 보낸다.
+   이 데이터를 <<request parameter>>라고 부른다.
+
+// 상대경로 URL vs 절대경로 URL
+   action 애트리뷰트값은 URL이다. 위에는 파일명만 적었으므로 상대경로 URL이다.
+
+// method="post"
+   form 태그 내부의 submit 버튼이 클릭되어 웹브라우저가 웹서버에 URL을 요청할 때,
+   요청방식에는 method="post"방식과 method="get" 방식이 있다.
+   method 애트리뷰트값을 생략하면 디폴트 요청 방식은 GET 방식 요청이다.
+   get 방식 요청은 request parameter를 <<query string>> 형태로 URL에 붙여서 전송한다.
+
+      			<h1>텍스트 입력폼 01</h1>
+
+      			<div class="form-group">
+        				<label>text1:</label> 
+        				<input type="text" name="param1" class="form-control" value="아무 것이나 입력하시오1" />
+// input type="text"
+   문자열을 입력하기 위한 텍스트 박스 태그이다.
+   submit 버튼이 클릭되어 웹서버에 요청이 전송될 때, 이 텍스트 박스에 입력된 문자열도 그 요청에
+   같이 담겨져 웹서버에 전송된다. (request parameter)
+
+// name="param1"
+   나중에 웹서버에서 이 이름으로 request parameter를 꺼내게 된다.
+
+// value="아무 것이나 입력하시오"
+   웹 브라우저에 그려질 때, 이 value 값이 미리 채워진 상태로 그려진다.
+
+			</div>
+
+      			<div class="form-group">
+        				<label>text2:</label> 
+        				<input type="text" name="param2" class="form-control" value="아무 것이나 입력하시오2" />
+      			</div>
+      			<div class="form-group">
+        				<input type="submit" class="btn btn-primary" name="cmd" value="확인"> 
+// class="btn btn-primary"
+   bootstrap에서 정의된 CSS 클래스를 태그에 부여함
+   <a>, <button>, <input type="submit">, ...에 btn CSS클래스를 부여하면 버튼 형태로 그려진다.
+
+        				<input type="reset" class="btn btn-default" value="취소">
+      			</div>
+    		</form>
+  	</div>
+</body>
+</html>
+
+
+웹 브라우저가 웹 서버에 URL을 요청하여 JSP 파일이 실행될 때, 그 요청과 관련된 모든 것이 request 객체에
+담겨져 전달된다.
+
+request.setCharacterEncoding("utf-8") : 한글 데이터가 포함되어 있다면, 먼저 문자 인코딩부터 맞춰야 한다.
+
+request.getParameter("데이터 이름") : request parameter 값이 출력된다.
