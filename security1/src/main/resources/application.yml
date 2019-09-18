@@ -1,0 +1,15 @@
+spring:
+    mvc.view.prefix: /WEB-INF/views/
+    mvc.view.suffix: .jsp
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/bbs1?characterEncoding=UTF-8&serverTimezone=UTC&rewriteBatchedStatements=true
+        username: root
+        password: happy14413
+    jpa:
+        show-sql: true
+        properties:
+            hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+        
+
+server.port: 8088
