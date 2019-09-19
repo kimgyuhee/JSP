@@ -11,6 +11,7 @@
     (2) 교수회원가입을 클릭하면 교수님 회원가입창이 떠서
 	입력창에 데이터 입력하면 그 데이터가 professor
 	테이블에 저장된다.
+     (*) 학생 교수 회원가입 데이터가 user 테이블에 저장되면 ?
 
 4. 사용자들이 회원가입을 성공(클릭)하면 로그인 창으로 이동
 
@@ -29,4 +30,83 @@
 	(1) 데이터 타입이 학생이라면 학생 메인화면이 열림
 	(2) 데이터 타입이 교수라면 교수 메인화면이 열림
 	(3) 데이터 타입이 TA라면 TA 메인화면이 열림
+
+
+user테이블의 기능을 무엇으로 할것인가 ? 	
+	(1). 로그인 인증을 위한 테이블인가 ?
+	(2). 모든 사용자의 데이터를 넣을 테이블인가 ?
+(1). 만약 모든 사용자를 넣을 테이블이라면 사용자와 학생들마다 join을 해줘야함
+studnet 테이블에 학생 데이터를 넣기 위해서 student와 user의 관계는 ? 1 : 1 관계
+
+(2). 로그인 인증을 위한 테이블이라면 학생 회원가입, 교수 회원가입이 stdudent, professor
+테이블에 데이터가 저장되고 그 테이블에 있는 id와 password type을 user 테이블에 
+넣게 위해 join 해주기 관계는 1 : 1
+
+
+여기에 필요한 DB table과 colmun
+
+--------------------------------------------------------
+student
+
+[PK] student_id > 학생 학번
+
+student_name > 학생 이름
+
+[FK] department_id > 학과
+
+student_email > 학생 이메일
+
+studnet_phone > 학생 번호
+
+password > 비밀번호
+
+password_question > 비밀번호 Q
+
+password_answer > 비밀번호 A
+
+[FK] course_id  > 학생이 듣는 강좌
+
+[FK] user_type > 학생,교수,TA 구분
+
+--------------------------------------------------------
+professor
+
+[PK] prof_id > 교수 아이디
+
+prof_name > 교수 이름
+
+[FK] department_id > 학과
+
+prof_email > 학생 이메일
+
+password > 비밀번호
+
+password_question > 비밀번호 Q
+
+password_answer > 비밀번호 A
+
+[FK] course_id  > 교수 수업 강좌
+
+[FK] user_type > 학생,교수,TA 구분
+
+[FK] ta_id > ta 아이디 입력
+--------------------------------------------------------
+ta
+[PK, FK] student_id > ta 학번
+
+[FK] prof_id > 담당 교수님 아이디
+
+[FK] user_type > 학생, 교수, TA 구분
+
+[FK] course_id > 채점 가능 강좌
+--------------------------------------------------------
+user > 로그인 인증 DB
+[PK] user_id  > 회원가입 아이디
+
+password  > 회원가입 비밀번호 
+
+user_type > 학생, 교수님, TA
+
+
+
 
