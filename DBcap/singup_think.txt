@@ -109,7 +109,12 @@ password  > 회원가입 비밀번호
 
 user_type > 학생, 교수님, TA
 
+
+
 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+
 <<타임라인 DB 생각>>
 * 로그인을 하고 들어왔으면 각 사람의 타입의 칼럼을 알수 있다.
 ex) 201732003 1111 로 입력하고 들어왔으면 userType=1(학생)->(2=교수, 3=TA)
@@ -124,6 +129,101 @@ DB에서 N:M 관계는 별로 좋지 못하다
  
 
 내가 듣는 모든 강좌의 교수님이 게시한 것들 모두 보여주는 방법?
+강좌(lecture)[수강(apply)]랑 게시판(notice)
+apply테이블에서 course_id랑 notice 테이블의 course_id를 join하면 ?
+apply 테이블에서 course_id에 있는 게시물들을 전부 볼수 있다 ?
+
+
 
 >>>>>>>>>>>>>>>> 타임라인 DB는 따로 만들 필요가 없다고 봄
 
+<<강의 선택>>
+
+
+학생들이 게시물을 올리는 자유게시판에는 댓글을 달수가 없는가 ?
+
+lecture > 모든 강좌
+[PK] lecture_id  > 강좌 아이디
+
+lecture_name  > 강좌 이름
+
+[FK] prof_id  >  교수 아이디
+
+[FK] department_id > 학과 아이디
+
+startDate  > 강좌 개설 날짜
+
+lecture_type  > 전공, 교양
+
+-----------------------------------------------
+
+application > 학생이 선택한 강좌
+[PK] index > 기본키
+
+[FK] student_id > 학생 아이디
+
+[FK] course_id > 강좌 아이디
+
+[FK] notice_no > 게시물 번호
+
+-----------------------------------------------
+
+enrollment > 교수가 개설한 강좌
+[PK] index > 기본키
+
+[FK] prof_id > 교수 아이디
+
+[FK] lecture_id >강좌 아이디
+
+-----------------------------------------------
+
+notice > 교수가 올리는 게시판
+[PK] notice_no > 게시물 번호
+
+[FK] lecture_id > 어떤 강좌의 게시물들
+
+header > 공지, 과제 표시물
+
+title > 게시물 제목
+
+content > 게시물 내용
+
+deadline > 기한
+
+deadline_add > 연장기한
+
+[FK] file_no > 제출한 파일 번호
+
+-----------------------------------------------
+
+studentnotice > 학생이 올리는 게시판
+[PK] index > 게시물 번호
+
+[FK] lecture_id > 어떤 강좌의 학생게시물
+
+[FK] student_id > 어떤 학생이 올렷나
+
+title > 게시물 제목
+
+content > 게시물 내용
+
+submitdate > 제출 날짜
+
+-----------------------------------------------
+
+file > 학생이 제출한 파일
+[PK] file_no > 학생이 제출한 파일 번호
+
+[FK] student_id > 누가 파일을 올렷나
+
+file_name > 파일이름
+
+submitdate > 과제 제출 날짜
+
+grade > 과제 점수
+
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+총 12개의 테이블 존재
+
+각 테이블 간에 관계 생각하기
