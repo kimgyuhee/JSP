@@ -1,0 +1,85 @@
+﻿JPA 기초
+
+유사한 개념
+domain model	모델링(그림그리기)		
+conceptual model	--------------> ER 다이어그램 or
+business model			UML 다이어그램
+
+1. 배경지식
+1) Domain Model
+데이터베이스를 설계할 때, Entity Relationship 다이어그램으로 데이터베이스에 저장할
+정보를 설계한다. 
+	예를 들어, 대학교 학사정보 시스템의 도메인은. 대학교 학사 업무 영역이다.
+	대학교 학사 업무 영역에는 다음과 같은 개념이 포함된다
+	과목, 강좌, 분반, 학기, 수강, 학점, 담당교수, 휴학, 재수강
+
+2) JPA Repository 기본 메소드
+
+package net.skhu.repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import net.skhu.domain.Employee;
+public interface EmployeeRepository extends JpaRepository<Employee, Integer>  { 
+	/*** primary type이 integer이다.
+}
+
+이렇게 EmployeeRepository 엔터페이스를 선언하면,
+이 인터페이스를 구현한 클래스를 spring JPA가 자동으로 구현해 준다.
+
+- employeeRepository.findAll() 메소드
+	employ 테이블에서 레코드 전체 목록을 조회한다.
+	List<Employee> 객체가 리턴된다.
+
+- findById(id) 메소드
+	employee 테이블에서 기본값 필드 값이 id인 레코드를 조회
+	Optional<Employee> 타입의 객체가 리턴된다.
+ 	이 객체의 get 메소드를 호출하면 Employee 객체가 리턴된다.
+
+- flush() 메소드
+	버퍼 캐쉬에 있는 내용을 빨리쓰라는 내용
+
+3) REST API
+안드로이드 앱을 위한 서버를 개발하거나 웹브라우저에서 실행되는
+java script로 개발한 앱을 위한 서버를 개발할 때, REST API 서비스를 제공하는 서버를 구현
+
+4) JSON (Javascript Object Notation)
+
+5) RestController
+
+6) @ResponseBody
+컨트롤러의 액션 메소드 앞에 @ResponseBody 어노테이션을 붙이면, 
+이 액션 메소드가 리턴하는 Java 객체는 자동으로 JSON 포멧으로 변환되어 
+클라이언트에 전송된다.
+
+7) @RequestBody 
+
+8) Request Method
+
+9) REST API URL 패턴
+- query string 사용하지 않기
+- 동사 사용하지 않기
+
+10) @PathVriable
+
+11) 액션 메소드 URL
+
+12) JPA Entity 클래스
+@Entity  
+   JPA Entity 클래스 앞에 @Entity 어노테이션을 붙여야 한다. 
+@Id 
+   기본키(primary key)에 해당하는 멤버 변수에 @Id 어노테이션을 붙여야 한다.
+@GeneratedValue(strategy = GenerationType.IDENTITY) 
+   기본키가 Auto Increment 필드이거나 Identity 필드인 경우에 이 어노테이션을 붙여야 한다.
+
+13) Eager Loading, Lazy Loading
+
+
+
+
+
+
+http request는 head부분 body부분
+Get이냐 Post냐는 head에 들어감
+get 방식일때는 request parameter는 query string
+post 방식일때는 request parameter query string이 body에 있음
+
+파일업로드 post 방식임 body에 들어감
