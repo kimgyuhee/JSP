@@ -14,8 +14,8 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @Data
-@ToString(exclude={"notice"})
-@EqualsAndHashCode(exclude={"notice"})
+@ToString(exclude={"professor_notice"})
+@EqualsAndHashCode(exclude={"professor_notice"})
 @Entity
 public class comment {
 
