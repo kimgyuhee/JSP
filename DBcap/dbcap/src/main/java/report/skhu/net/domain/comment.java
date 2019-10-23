@@ -30,7 +30,7 @@ public class comment {
 	
 	@ManyToOne
 	@JoinColumn(name = "notice_no")
-	professor_notice notice;
+	professor_notice professor_notice;
 	
 	/*************
 	@ManyToOne
