@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	font:14px/1.8 Arial, Helvetica, sans-serif;
+}
+
+.frame {
+	width: 1000px;
+	height: 1000px;
+	margin: 0 auto;
+	border: 1px solid #aaa;
+}
+
+.header {
+	padding: 40px 10px;
+	text-align: center;
+	background: #eee;
+	margin-bottom: 30px;
+}
+
+.logo {
+	font-size: 2em;
+	font-weight: bold;
+	color: #fff;
+	display: inline-block;
+	padding: 0 8px;
+	float: left;
+}
+.container {
+	overflow: hidden;
+}
+
+.info {
+margin-bottom: 30px;
+border-bottom: 1px solid #aaa;
+}
+
+.nav {
+	float:left;
+	width: 200px;
+	background: #333;
+	color: #fff;
+	margin-right: 50px;
+	margin-left: 10px;
+}
+.nav-list {
+	list-style: none;
+	margin: 10px;
+	padding: 10px 0;
+}
+.nav-item {
+	margin: 4px 0;
+	border-bottom: 1px solid #707070;
+}
+.nav-item:before {
+	margin: 4px 0;
+	border-bottom: 1px solid #707070;
+}
+.nav-link {
+	display: block;
+	text-decoration: none;
+	padding: 4px 10px;
+	color: #fff;
+}
+.nav-link:hover {
+	background: #5457de;
+}
+
+.nav-course {border-bottom: 1px solid #efefef;}
+.timeline {padding: 5px;}
+.timeline-list {
+	list-style: none;
+}
+.timeline-item {
+	margin: 0;
+	border: 1px solid #aaa;
+	margin: 5px;
+	padding: 10px;
+
+}
+.timeline-link {
+	display: block;
+	text-decoration: none;
+	color: #000;
+	background: #fff;
+}
+.timeline-link:hover {
+	background: #B7B7B7;
+}
+.nav-major {border-bottom: 1px solid #aaa; margin: 5px;}
+.major {padding-left: 10px; }
+.content { padding: 15px 15px; float: left; width: 450px; border: 1px solid #aaa;}
+.nav02 {float: right; width: 170px; background: #fff; color: #000; margin-right: 30px; margin-left: 25px; border: 1px solid #aaa; padding: 10px;}
+.nav02-list { margin: 30px; padding: 10px 0;}
+.nav02-item {margin: 4px 0;}
+.nav02-link {display: block; text-decoration: none; padding: 4px 10px; color: #000;}
+.nav02-link:hover {background: #939393; }
+
+.footer {text-align: left; margin: 20px; font-size: 12px;}
+
+#h1-1 {padding-left: 30px}
+.content2 { padding: 15px 15px; float: left; width: 600px; border: 1px solid #aaa;}
+.posting-list {list-style: none;}
+.posting-item {}
+
+table { border-collapse: collapse; }
+td { border: 1px solid gray; padding: 3px; }
+thead { background-color: #dddddd; font-weight: bold; }

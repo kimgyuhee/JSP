@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+
+ul.menu {list-style: none;}
+
+ul.menu li {padding: 5px; font-size: 16px; font-family: "Trebuchet MS",Arial, sans-serif;}
+
+ul.menu li a {
+	height: 50px; 
+	line-height: 50px; 
+	display: inline-block; 
+	padding-left: 60px; 
+	color: #3E789F; 
+	background: url('../img/mySprite.png') no-repeat;
+}
+
+ul.menu li.firefox a {
+	background-position: 0 0;
+}
+
+ul.menu li.chrome a {
+	background-position: 0-100px;
+}
+
+ul menu li.ie a {
+	background-position: 0-200px;
+}
+
+ul.menu li.safari a {
+	background-position: 0-300px;
+}
+
+ul.menu li.opera a {
+	background-position: 0-400px;
+}
+
+ul.menu li.firefox a {
+	background-position: 0-50px;
+}
+
+ul.menu li.chrome a:hover {
+	background-position: 0-150px;
+}
+
+ul.menu li.ie a:hover {
+	background-position: 0-250px;
+}
+
+ul.menu li.safari a:hover {
+	background-position: 0-350px;
+}
+
+ul.menu li.opera a:hover {
+	background-position: 0-450px;
+}

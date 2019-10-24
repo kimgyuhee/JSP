@@ -10,10 +10,11 @@
   <title>강좌 개설 </title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/offcanvas/">
-  <link href="WEB-INF/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="WEB-INF/bootstrap/css/offcanvas.css" rel="stylesheet">
-  <link href="WEB-INF/bootstrap/css/form-validation.css" rel="stylesheet">
-
+  <style type="text/css">
+    <%@include file="/WEB-INF/bootstrap/css/bootstrap.min.css" %>
+    <%@include file="/WEB-INF/bootstrap/css/offcanvas.css" %>
+    <%@include file="/WEB-INF/bootstrap/css/form-validation.css" %>
+  </style>
 </head>
 
 <body class="bg-light">

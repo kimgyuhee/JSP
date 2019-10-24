@@ -27,6 +27,7 @@ public class CreateLectureService {
 
 	public lecture createEntity(LectureRegistrationModel lectureModel) {
 		lecture lecture = new lecture();
+		lecture.setLecture_no(lectureModel.getLecture_no());
 		lecture.setLecture_name(lectureModel.getLecture_name());
 		lecture.setLecture_type(lectureModel.getLecture_type());		
 		return lecture;

@@ -37,10 +37,24 @@ public class APIController {
 	// 생성 버튼을 클릭했을 때 발생한다.
 	@RequestMapping(value="createlecture", method=RequestMethod.POST)
 	public String newLecture(@Valid LectureRegistrationModel lectureModel, BindingResult bindingResult , Model model) {
+		if(bindingResult.hasErrors())
+			return "createlecture";
 		createLectureService.save(lectureModel);
-		return "redirect:createlecture";
+		return "redirect:registerSuccess";
 	}
 
+	
+	@RequestMapping("main")
+	public String main() {
+		return "main";
+	}
+	
+	
+	@RequestMapping("registerSuccess")
+	public String registerSuccess() {
+		return "registerSuccess";
+	}
+	
 	@RequestMapping("login")
 	public String login() {
 		return "loginform";

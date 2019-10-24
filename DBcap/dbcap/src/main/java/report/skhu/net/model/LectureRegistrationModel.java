@@ -9,9 +9,13 @@ import lombok.Data;
 public class LectureRegistrationModel {
 
 	@NotEmpty
+	int lecture_no;
+	
+	@NotEmpty
 	String lecture_name;
 	
 	@NotEmpty
 	String lecture_type;
 	
+	int ta_no;
 }
