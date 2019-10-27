@@ -1,5 +1,6 @@
 package report.skhu.net.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,10 +24,12 @@ public class ta {
 	String ta_id;
 	
 	String password;
+	
 	String password_question;
+	
 	String password_answer;
 	
 	@OneToOne
-	@JoinColumn(name="professor_id")
+	@JoinColumn(name="professor_no")
 	professor professor;
 }

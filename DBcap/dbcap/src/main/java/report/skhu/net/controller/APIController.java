@@ -38,7 +38,7 @@ public class APIController {
 	@RequestMapping(value="createlecture", method=RequestMethod.POST)
 	public String newLecture(@Valid LectureRegistrationModel lectureModel, BindingResult bindingResult , Model model) {
 		if(bindingResult.hasErrors())
-			return "createlecture";
+			return "registerSuccess";
 		createLectureService.save(lectureModel);
 		return "redirect:registerSuccess";
 	}

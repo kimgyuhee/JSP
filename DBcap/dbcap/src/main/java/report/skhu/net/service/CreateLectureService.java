@@ -5,6 +5,9 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -16,15 +19,27 @@ import report.skhu.net.repository.LectureRepository;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class CreateLectureService {
+@SpringBootApplication
+public class CreateLectureService implements CommandLineRunner{
 
 	@Autowired
 	public LectureRepository lectureRepository;
 
+	LectureRegistrationModel lectureModel;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(CreateLectureService.class, args);
+	}
 	public List<lecture> findAll() { 
 		return lectureRepository.findAll();
 	}
 
+	@Override
+	public void run(String...args ) throws Exception {
+		lectureRepository.save(createEntity(lectureModel));
+	}
+	
+	@Transactional
 	public lecture createEntity(LectureRegistrationModel lectureModel) {
 		lecture lecture = new lecture();
 		lecture.setLecture_no(lectureModel.getLecture_no());
